@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>云计算服务器展示页</title>
+<style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+    h1 {
+      margin-top: 10px;
+      font-weight: 700;
+      color: #0052cc;
+    }
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.05);
+    }
+    section {
+      margin-bottom: 30px;
+    }
+    section h2 {
+      border-left: 4px solid #0052cc;
+      padding-left: 10px;
+      color: #0052cc;
+      font-weight: 700;
+    }
+    ul, p {
+      line-height: 1.8;
+    }
+    .img-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .img-container img {
+      max-width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #999;
+      margin-top: 50px;
+      border-top: 1px solid #eee;
+      padding-top: 15px;
+    }
+    a {
+      color: #0052cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    code {
+      background: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 90%;
+    }
+  </style>
+</head>
+<body>
+<header>
+<h1>服务器展示</h1>
+<p>本页面全面介绍服务器。</p>
+</header>
+
+<main>
+<section>
+<h2>一、服务器概述</h2>
+<p>服务器（Servers）一般运行 Linux 或 Windows 服务器版本，用于支撑应用、网站、小程序等稳定运行。服务器特点：稳定、易扩展。</p>
+</section>
+<section>
+<h2>二、服务器分类与选型</h2>
+<ul>
+<li><strong>物理服务器：</strong>需自购设备、部署、机房带宽，适合测试环境及访问量大场景。</li>
+<li><strong>公有云服务器：</strong>按需分配，无需管理物理设备，适合中小企业。</li>
+<li><strong>私有云/虚拟化：</strong>自建环境，自定义高，数据安全性高。</li>
+</ul>
+<p>常见品牌：</p>
+<ul>
+<li>物理服务器：Dell、华为、浪潮等</li>
+<li>云服务器：阿里云、腾讯云、华为云、AWS、GCP、Azure</li>
+</ul>
+</section>
+<section>
+<h2>三、目录结构与配置文件</h2>
+<ul>
+<li><code>/etc/hostname</code>：主机名配置文件</li>
+<li><code>/etc/hosts</code>：主机名与 IP 映射</li>
+<li><code>/etc/sysconfig/network-scripts/</code>：网络配置文件</li>
+<li><code>/etc/rc.local</code>：开机自启动</li>
+<li><code>/etc/fstab</code>：磁盘挂载配置</li>
+<li><code>/var/log/</code>：日志目录（<code>secure</code> 登录日志、<code>messages</code> 系统日志）</li>
+<li><code>/proc/</code>：虚拟目录，存储内核及进程信息</li>
+</ul>
+</section>
+<section>
+<h2>四、主机名与网络配置</h2>
+<pre># 临时修改
+hostnamectl set-hostname boot
+
+# 查看主机名
+hostname 或 cat /etc/hostname
+
+# 永久修改
+编辑 /etc/hostname 文件
+
+# 网卡配置（固定 IP 示例）
+BOOTPROTO=static
+ONBOOT=yes
+IPADDR=192.168.10.100
+NETMASK=255.255.255.0
+GATEWAY=192.168.10.2
+DNS1=192.168.10.2</pre>
+</section>
+<section>
+<h2>五、CPU 与内存信息</h2>
+<p>通过 <code>lscpu</code> 查看 CPU 架构、核心数、虚拟化支持。</p>
+<p>通过 <code>/proc/meminfo</code> 查看内存信息，了解系统性能。</p>
+</section>
+<section>
+<h2>六、日志与排错</h2>
+<p>常用日志路径：</p>
+<ul>
+<li><code>/var/log/secure</code>：用户登录日志，分析暴力破解。</li>
+<li><code>/var/log/messages</code>：系统与服务异常日志。</li>
+</ul>
+</section>
+</main>
+
+<footer>
+<p>© 2025 服务器展示页 | GitHub Pages 托管</p>
+<p><img alt="又拍云 Logo" src="https://github.com/MoYe-308/upyun/blob/main/%E5%8F%88%E6%8B%8D%E4%BA%91_logo3.png?raw=true" style="max-width: 100px; margin-top: 10px;"/></p>
+<p><a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" rel="noopener" target="_blank">访问又拍云官网 »</a></p>
+</footer>
+</body>
+</html>
